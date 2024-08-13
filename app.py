@@ -41,22 +41,23 @@ barra_menu.add_cascade(label='Principal', menu=menu_principal)
 menu_principal.add_command(label='Limpiar lista', command=limpiar_lista)
 menu_principal.add_command(label='Salir', command=salir)
 
-# Crear el reloj
-reloj = tk.Label(ventana, font=('Arial', 20), bg='blue', fg='white')
-reloj.pack(anchor='n')
+# Crear el reloj en la parte superior derecha
+reloj = tk.Label(ventana, font=('Arial', 20), fg='black', bg='white')
+reloj.place(relx=1.0, rely=0.0, anchor='ne')
 hora()
 
 # Crear la entrada para agregar contactos
 entrada_contacto = tk.Entry(ventana)
-entrada_contacto.pack(pady=10)
+entrada_contacto.pack(side='top', anchor='nw', padx=10, pady=10)
+
 
 # Botón para agregar un contacto
 boton_agregar = tk.Button(ventana, text='Agregar Contacto', command=agregar_contacto)
-boton_agregar.pack(pady=5)
+boton_agregar.pack(side='top', anchor='nw', padx=10, pady=(0, 10))
 
 # Crear el marco para la lista de contactos con scrollbar
 marco = tk.Frame(ventana)
-marco.pack(padx=10, pady=10)
+marco.pack(side='top', anchor='nw', padx=10, pady=(0, 10))
 scrollbar = tk.Scrollbar(marco)
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 lista_contactos = tk.Listbox(marco, yscrollcommand=scrollbar.set)
@@ -65,7 +66,7 @@ scrollbar.config(command=lista_contactos.yview)
 
 # Botón para eliminar un contacto
 boton_eliminar = tk.Button(ventana, text='Eliminar Contacto', command=eliminar_contacto)
-boton_eliminar.pack(pady=5)
+boton_eliminar.pack(side='top', anchor='nw', padx=10, pady=(0, 10))
 
 # Iniciar el bucle de la ventana
 ventana.mainloop()

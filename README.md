@@ -40,3 +40,4 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
   para luego crear tu branch: 
   git checkout -b <tu_nombre>/<abreviacion_del_nombre_del_ticket>
   revisar con "git branch" que efectivamente estas parado en la branch correcta, una vez confirma  
+------------------------------

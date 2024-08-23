@@ -15,8 +15,8 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
 
 
 # Como correr el proyecto
-- Clonar el proyecto con el comando
- 'git clone https://github.com/M0narc/info_app.git'
+- Clonar el proyecto con el comando -> 
+ git clone https://github.com/M0narc/info_app.git
 
 - dentro de la carpeta del proyecto crear un virtual environment(entorno virtual o venv) usando la linea de comandos (cmd)
   el comando para crear el virtual environment es el siguiente

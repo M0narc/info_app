@@ -1,7 +1,6 @@
 import tkinter as tk
 
 
-
 # Función para mostrar la hora actual
 
 

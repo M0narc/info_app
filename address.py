@@ -2,14 +2,14 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 
-# Función para mostrar la hora actual
 def hora():
+    """Funcion para mostrar la hora actual"""
     tiempo_actual = time.strftime('%H:%M:%S')
     reloj.config(text=tiempo_actual)
     ventana.after(1000, hora)
 
-# Función para agregar un contacto
 def agregar_contacto():
+    """Funcion para agregar un contacto"""
     nombre = entrada_nombre.get()
     telefono = entrada_telefono.get()
     direccion = entrada_direccion.get()
@@ -23,8 +23,8 @@ def agregar_contacto():
     else:
         messagebox.showwarning("Campos vacíos", "Por favor, completa todos los campos antes de agregar un contacto.")
 
-# Función para eliminar un contacto
 def eliminar_contacto():
+    """Función para eliminar un contacto"""
     seleccion = lista_contactos.curselection()
     if seleccion:
         nombre = lista_contactos.get(seleccion[0])
@@ -33,8 +33,8 @@ def eliminar_contacto():
     else:
         messagebox.showwarning("Selección de contacto", "Por favor, selecciona un contacto de la lista.")
 
-# Función para mostrar la ventana modal con la información del contacto
 def mostrar_info_contacto():
+    """Función para mostrar la ventana modal con la información del contacto"""
     seleccion = lista_contactos.curselection()
     if not seleccion:
         messagebox.showwarning("Selección de contacto", "Por favor, selecciona un contacto de la lista.")
@@ -55,12 +55,12 @@ def mostrar_info_contacto():
     tk.Button(modal_ventana, text="Cerrar", command=modal_ventana.destroy).pack(pady=10)
 
 
-# Función para salir de la aplicación
 def salir():
+    """Función para salir de la aplicación"""
     ventana.destroy()
 
-# Función para limpiar la lista de contactos
 def limpiar_lista():
+    """Función para limpiar la lista de contactos"""
     lista_contactos.delete(0, tk.END)
     contactos.clear()
 
@@ -69,7 +69,7 @@ ventana = tk.Tk()
 ventana.title('Agenda de Contactos')
 ventana.geometry('500x500')
 
-# Crear el menú desplegable
+# menu desplegable
 barra_menu = tk.Menu(ventana)
 ventana.config(menu=barra_menu)
 menu_principal = tk.Menu(barra_menu)
@@ -77,8 +77,8 @@ barra_menu.add_cascade(label='Principal', menu=menu_principal)
 menu_principal.add_command(label='Limpiar lista', command=limpiar_lista)
 menu_principal.add_command(label='Salir', command=salir)
 
-# Crear el reloj en la parte superior derecha
-reloj = tk.Label(ventana, font=('Arial', 20), fg='black', bg='white')
+# reloj en la parte superior derecha
+reloj = tk.Label(ventana, font=('Arial', 20), fg='black')
 reloj.place(relx=1.0, rely=0.0, anchor='ne')
 hora()
 
@@ -104,7 +104,7 @@ tk.Label(marco_contacto, text="Dirección:").pack(side='left', padx=(0, 10))
 entrada_direccion = tk.Entry(marco_contacto)
 entrada_direccion.pack(side='left', padx=(0, 10))
 
-# Botón para agregar un contacto
+# Boton para agregar un contacto
 boton_agregar = tk.Button(ventana, text='Agregar Contacto', command=agregar_contacto)
 boton_agregar.pack(anchor='nw', padx=10, pady=10)
 
@@ -121,11 +121,11 @@ scrollbar.config(command=lista_contactos.yview)
 # Crear un marco para contener los botones de abajo
 marco_botones_abajo = tk.Frame(ventana).pack(side='top', anchor='nw', padx=10, pady=(0, 10))
 
-# Botón para eliminar un contacto
+# Boton para eliminar un contacto
 boton_eliminar = tk.Button(marco_botones_abajo, text='Eliminar Contacto', command=eliminar_contacto)
 boton_eliminar.pack(side='left', anchor='nw', padx=10, pady=(0,10))
 
-# Botón para mostrar la información detallada del contacto
+# Boton para mostrar la información detallada del contacto
 boton_mostrar_info = tk.Button(marco_botones_abajo, text='Mostrar Info', command=mostrar_info_contacto)
 boton_mostrar_info.pack(side='left', anchor='nw', padx=(0, 10))
 

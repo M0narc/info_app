@@ -25,7 +25,8 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
   `python3 -m venv venv`
 
 - Instalar tkinter usando pip
- `pip install tk`
+ `pip install -r requirements.txt`
+ 
 
 - Ejecutar el archivo.
  `python address.py `

@@ -5,8 +5,11 @@ Aplicacion para la segunda parte del informatorio.
 Recursos para poder saber mas sobre tkinter
 https://www.pythontutorial.net/tkinter/
 
-# Agenda/TodoList
-Crear una agenda o un todo list
+# Agenda
+Crear una agenda queacepte campos de 
+nombre,apellido, numero y direccion
+
+se usa Faker para crear dummy data
 
 # Trello
 Charlar con el equipo quien se asigna que tarjeta y los pasos a seguir.

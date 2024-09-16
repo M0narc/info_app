@@ -3,6 +3,7 @@ import tkinter as tk
 
 fake = Faker()
 
+
 def agregar_contactos_falsos(lista_contactos, contactos):
     """Genera contactos falsos usando Faker."""
     cantidad = 10

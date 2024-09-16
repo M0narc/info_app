@@ -1,6 +1,7 @@
 import openpyxl
 from tkinter import filedialog, messagebox
 
+
 def exportar_contactos(contactos):
     """Función para descargar la lista de contactos como un archivo Excel"""
     if not contactos:

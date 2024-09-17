@@ -32,9 +32,9 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
  
 
 - Ejecutar el archivo.
- `python address.py `
+ `python main.py `
  o de forma alternativa
- `python3 address.py`
+ `python3 main.py`
 
  # Para comenzar a trabajar tienes que crearte tu propia rama
  - Para revisar la rama en la que te encuentras tienes que usar -> `git branch`
@@ -44,4 +44,14 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
   para luego crear tu branch: 
   `git checkout -b <tu_nombre>/<abreviacion_del_nombre_del_ticket>`
   revisar con "`git branch`" que efectivamente estas parado en la branch correcta, una vez confirmado comenzar a trabajar
-------------------------------
+
+
+# Como testear
+
+- Agregar los campos correspondientes para agregar contactos (numero de telefono solo toma numeros y -)
+  y agregar el contacto.
+- Tambien puedes agregar la data falsa con el boton de fake data.
+- Puedes descargar un excel con los contactos.
+- Limiar la agenda.
+- Luego de agregar los suficientes contactos puedes usar el scroll de la app en la lista de contactos.
+- Puedes revisar toda la info de los usuarios individualmente.

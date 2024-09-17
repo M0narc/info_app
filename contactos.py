@@ -47,33 +47,6 @@ def eliminar_contacto(lista_contactos, contactos):
         )
 
 
-def mostrar_info_contacto(lista_contactos, contactos, ventana):
-    seleccion = lista_contactos.curselection()
-    if not seleccion:
-        messagebox.showwarning(
-            "Selección de contacto", "Por favor, selecciona un contacto de la lista."
-        )
-        return
-
-    nombre_completo = lista_contactos.get(seleccion[0])
-    contacto = contactos.get(nombre_completo)
-
-    modal_ventana = tk.Toplevel(ventana)
-    modal_ventana.title("Información Detallada del Contacto")
-    modal_ventana.geometry("400x200")
-
-    tk.Label(modal_ventana, text=f"Nombre y apellido: {nombre_completo}").pack(
-        side="top", anchor="nw", padx=(0, 10), pady=5
-    )
-    tk.Label(modal_ventana, text=f"Teléfono: {contacto['teléfono']}").pack(
-        side="top", anchor="nw", padx=(0, 10), pady=5
-    )
-    tk.Label(modal_ventana, text=f"Dirección: {contacto['dirección']}").pack(
-        side="top", anchor="nw", padx=(0, 10), pady=5
-    )
-
-    tk.Button(modal_ventana, text="Cerrar", command=modal_ventana.destroy).pack(pady=10)
-
 
 def limpiar_lista(lista_contactos, contactos):
     lista_contactos.delete(0, tk.END)

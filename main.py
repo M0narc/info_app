@@ -3,9 +3,9 @@ from reloj import hora
 from contactos import (
     agregar_contacto,
     eliminar_contacto,
-    mostrar_info_contacto,
     limpiar_lista,
 )
+from modal_info_contactos import mostrar_info_contacto
 from faker_data import agregar_contactos_falsos
 from exportar_contactos import exportar_contactos
 from validaciones import validar_telefono

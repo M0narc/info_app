@@ -16,8 +16,10 @@ def agregar_contacto(
     direccion = entrada_direccion.get()
 
     if nombre and telefono and direccion and apellido:
-        lista_contactos.insert(tk.END, nombre)
-        contactos[nombre] = {
+        nombre_completo = f"{nombre} {apellido}"
+        lista_contactos.insert(tk.END, nombre_completo)
+        contactos[nombre_completo] = {
+            "nombre": nombre,
             "apellido": apellido,
             "teléfono": telefono,
             "dirección": direccion,
@@ -36,9 +38,9 @@ def agregar_contacto(
 def eliminar_contacto(lista_contactos, contactos):
     seleccion = lista_contactos.curselection()
     if seleccion:
-        nombre = lista_contactos.get(seleccion[0])
+        nombre_completo = lista_contactos.get(seleccion[0])
         lista_contactos.delete(seleccion)
-        del contactos[nombre]
+        del contactos[nombre_completo]
     else:
         messagebox.showwarning(
             "Selección de contacto", "Por favor, selecciona un contacto de la lista."
@@ -53,14 +55,14 @@ def mostrar_info_contacto(lista_contactos, contactos, ventana):
         )
         return
 
-    nombre = lista_contactos.get(seleccion[0])
-    contacto = contactos.get(nombre)
+    nombre_completo = lista_contactos.get(seleccion[0])
+    contacto = contactos.get(nombre_completo)
 
     modal_ventana = tk.Toplevel(ventana)
     modal_ventana.title("Información Detallada del Contacto")
     modal_ventana.geometry("400x200")
 
-    tk.Label(modal_ventana, text=f"Nombre: {nombre} {contacto['apellido']}").pack(
+    tk.Label(modal_ventana, text=f"Nombre y apellido: {nombre_completo}").pack(
         side="top", anchor="nw", padx=(0, 10), pady=5
     )
     tk.Label(modal_ventana, text=f"Teléfono: {contacto['teléfono']}").pack(

@@ -19,12 +19,14 @@ def exportar_contactos(contactos):
     sheet["C1"] = "Teléfono"
     sheet["D1"] = "Dirección"
 
+    print(contactos.items())
     # Insertar los datos de los contactos
-    for i, (nombre, info) in enumerate(contactos.items(), start=2):
-        sheet[f"A{i}"] = nombre
-        sheet[f"B{i}"] = info["apellido"]
-        sheet[f"C{i}"] = info["teléfono"]
-        sheet[f"D{i}"] = info["dirección"]
+    for i, (_, info) in enumerate(contactos.items(), start=2):
+        # Acceder correctamente a los campos de nombre y apellido
+        sheet[f"A{i}"] = info.get("nombre", "")  # Nombre
+        sheet[f"B{i}"] = info.get("apellido", "")  # Apellido
+        sheet[f"C{i}"] = info.get("teléfono", "")  # Teléfono
+        sheet[f"D{i}"] = info.get("dirección", "")  # Dirección
 
     # Guardar el archivo
     archivo = filedialog.asksaveasfilename(

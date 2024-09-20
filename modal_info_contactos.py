@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from validaciones import validar_telefono
 
 
 def mostrar_info_contacto(lista_contactos, contactos, ventana):
@@ -17,14 +18,52 @@ def mostrar_info_contacto(lista_contactos, contactos, ventana):
     modal_ventana.title("Información Detallada del Contacto")
     modal_ventana.geometry("400x300")
 
-    # Campos actuales
+    # Mostrar la información sin permitir modificación inicialmente
+    tk.Label(modal_ventana, text="Información del Contacto").pack(pady=10)
+
+    # Nombre
+    tk.Label(modal_ventana, text=f"Nombre: {contacto['nombre']}").pack(anchor="w", padx=10)
+
+    # Apellido
+    tk.Label(modal_ventana, text=f"Apellido: {contacto['apellido']}").pack(anchor="w", padx=10)
+
+    # Teléfono
+    tk.Label(modal_ventana, text=f"Teléfono: {contacto['teléfono']}").pack(anchor="w", padx=10)
+
+    # Dirección
+    tk.Label(modal_ventana, text=f"Dirección: {contacto['dirección']}").pack(anchor="w", padx=10)
+
+    # Botón para habilitar edición
+    tk.Button(
+        modal_ventana,
+        text="Modificar Contacto",
+        command=lambda: habilitar_edicion(
+            contacto,
+            nombre_completo,
+            lista_contactos,
+            contactos,
+            modal_ventana
+        ),
+    ).pack(pady=10)
+
+    # Botón para cerrar la ventana
+    tk.Button(modal_ventana, text="Cerrar", command=modal_ventana.destroy).pack(pady=10)
+
+
+def habilitar_edicion(contacto, nombre_completo, lista_contactos, contactos, modal_ventana):
+    """Habilita la edición de los campos y muestra un botón para guardar cambios."""
+
+    # Limpiar la ventana modal
+    for widget in modal_ventana.winfo_children():
+        widget.destroy()
+
     tk.Label(modal_ventana, text="Modificar Contacto").pack(pady=10)
 
     # Nombre
     tk.Label(modal_ventana, text="Nombre:").pack(anchor="w")
     entrada_nombre = tk.Entry(modal_ventana)
     entrada_nombre.pack(fill="x", padx=10)
-    entrada_nombre.insert(0, contacto["nombre"])  # Solo el nombre
+    entrada_nombre.insert(0, contacto["nombre"])
 
     # Apellido
     tk.Label(modal_ventana, text="Apellido:").pack(anchor="w")
@@ -32,9 +71,12 @@ def mostrar_info_contacto(lista_contactos, contactos, ventana):
     entrada_apellido.pack(fill="x", padx=10)
     entrada_apellido.insert(0, contacto["apellido"])
 
+    # Validar teléfono
+    v_telefono = modal_ventana.register(validar_telefono)
+
     # Teléfono
     tk.Label(modal_ventana, text="Teléfono:").pack(anchor="w")
-    entrada_telefono = tk.Entry(modal_ventana)
+    entrada_telefono = tk.Entry(modal_ventana, validate="key", validatecommand=(v_telefono, "%P"))
     entrada_telefono.pack(fill="x", padx=10)
     entrada_telefono.insert(0, contacto["teléfono"])
 
@@ -44,7 +86,7 @@ def mostrar_info_contacto(lista_contactos, contactos, ventana):
     entrada_direccion.pack(fill="x", padx=10)
     entrada_direccion.insert(0, contacto["dirección"])
 
-    # Botón para guardar cambios
+    # guardar cambios
     tk.Button(
         modal_ventana,
         text="Guardar Cambios",

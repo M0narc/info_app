@@ -52,6 +52,7 @@ https://trello.com/b/P1Cah6xX/proyecto-to-do-list
   y agregar el contacto.
 - Tambien puedes agregar la data falsa con el boton de fake data.
 - Puedes descargar un excel con los contactos.
-- Limiar la agenda.
+- Limpiar la agenda.
 - Luego de agregar los suficientes contactos puedes usar el scroll de la app en la lista de contactos.
 - Puedes revisar toda la info de los usuarios individualmente.
+- Puedes actualizar los contactos.
